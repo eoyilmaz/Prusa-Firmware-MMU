@@ -111,7 +111,7 @@ static constexpr U_mm fsensorUnloadCheckDistance = 40.0_mm;
 static constexpr AxisConfig pulley = {
     .dirOn = false,
     .mRes = MRes_8,
-    .iRun = 13, /// 230mA
+    .iRun = 48, ///850 mA for the 42-40 motor /// 13, /// 230mA
     .iHold = 0, /// 17mA in SpreadCycle, freewheel in StealthChop
     .stealth = false,
     .stepsPerUnit = (200 * 8 / 19.147274),
@@ -136,11 +136,11 @@ static constexpr U_mm_s pulleySlowFeedrate = 20._mm_s;
 static constexpr AxisConfig selector = {
     .dirOn = true,
     .mRes = MRes_8,
-    .iRun = 31, /// 530mA
+    .iRun = 39, /// 580 mA for the Creality Motor /// 31, /// 530mA
     .iHold = 0, /// 17mA in SpreadCycle, freewheel in StealthChop
     .stealth = false,
     .stepsPerUnit = (200 * 8 / 8.),
-    .sg_thrs = 3,
+    .sg_thrs = 9, /// default was 3,
 };
 
 static constexpr uint8_t selectorCutIRun = 40; ///< 660mA
@@ -186,11 +186,11 @@ static constexpr U_mm_s selectorHomingFeedrate = 30._mm_s;
 static constexpr AxisConfig idler = {
     .dirOn = true,
     .mRes = MRes_16,
-    .iRun = 31, /// 530mA
+    .iRun = 37, /// 650 mA for the Creality Motor /// 31, /// 530mA
     .iHold = 5, /// 99mA - parked current
     .stealth = false,
     .stepsPerUnit = (200 * 16 / 360.),
-    .sg_thrs = 7,
+    .sg_thrs = 2, // default was 7,
 };
 
 /// Idler motion limits

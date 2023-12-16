@@ -13,23 +13,27 @@ namespace protocol {
 
 /// Definition of request message codes
 enum class RequestMsgCodes : uint8_t {
-    unknown = 0,
-    Query = 'Q',
-    Tool = 'T',
-    Load = 'L',
-    Mode = 'M',
-    Unload = 'U',
-    Reset = 'X',
-    Finda = 'P',
-    Version = 'S',
-    Button = 'B',
-    Eject = 'E',
-    Write = 'W',
-    Cut = 'K',
-    FilamentType = 'F',
+    unknown        = 0,
+
+    Cut            = 'K',
+    Eject          = 'E',
+    Load           = 'L',
+    Tool           = 'T',
+    Query          = 'Q',
+    Unload         = 'U',
+
+    Home           = 'H',
+    Reset          = 'X',
+
+    Button         = 'B',
+    FilamentType   = 'F',
     FilamentSensor = 'f',
-    Home = 'H',
-    Read = 'R'
+    Finda          = 'P',
+
+    Mode           = 'M',
+    Read           = 'R',
+    Write          = 'W',
+    Version        = 'S'
 };
 
 /// Definition of response message parameter codes
