@@ -121,7 +121,11 @@ bool LoadFilament::StepInner() {
         mui::Event ev = mui::userInput.ConsumeEvent();
         switch (ev) {
         case mui::Event::Middle: // try again the whole sequence
-            ResumeIdlerSelector();
+            // instead of resuming the idler, invalidate the homing,
+            // as sometimes the problem occurs, because filament pushes the idler
+            // and idler feeds the wrong filament...
+            // ResumeIdlerSelector();
+            InvalidateHoming(); 
             // however it depends on the state of FINDA - if it is on, we must perform unload first
             if (!mf::finda.Pressed()) {
                 Reset2(false);
